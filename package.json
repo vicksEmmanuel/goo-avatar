@@ -4,8 +4,11 @@
   "description": "Creates Avatar for specific users on the fly",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js",
+    "start": "npm run build && node ./build/index.js",
     "dev": "nodemon --exec babel-node index.js",
+    "build-babel": "babel -d ./build index.js",
+    "build": "npm run clean && npm run build-babel",
+    "clean": "rm -rf build && mkdir build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,13 +18,14 @@
   "keywords": [
     "goo-avatar"
   ],
-  "author": "vicksemmanuel",
+  "author": "vicksemmanuel, Tolulope Odueke",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vicksEmmanuel/goo-avatar/issues"
   },
   "homepage": "https://github.com/vicksEmmanuel/goo-avatar#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
