@@ -1,10 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
 var _ = _interopRequireDefault(require("nice-color-palettes/1000"));
 
 var _v = _interopRequireDefault(require("uuid/v1"));
@@ -20,10 +15,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* eslint-disable prefer-promise-reject-errors */
 
 /* eslint-disable no-else-return */
-
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable no-path-concat */
 var gooavatar = {
   setDefaultTemplateProps: function setDefaultTemplateProps(v, u, color, stroke, bgcolor) {
     var template = "\n            <svg width=\"580\" height=\"400\" xmlns=\"http://www.w3.org/2000/svg\">\n            <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->\n            <g>\n            <title>background</title>\n            <rect fill=\"".concat(bgcolor, "\" id=\"canvas_background\" height=\"402\" width=\"582\" y=\"-1\" x=\"-1\"/>\n            <g display=\"none\" overflow=\"visible\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\" id=\"canvasGrid\">\n            <rect fill=\"url(#gridpattern)\" stroke-width=\"0\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\"/>\n            </g>\n            </g>\n            <g>\n            <title>Layer 1</title>\n            <text stroke=\"").concat(stroke, "\" transform=\"matrix(7,0,0,7,-771,-848.625) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_1\" y=\"152.866071\" x=\"141.214286\" stroke-width=\"0\" fill=\"").concat(color, "\">").concat(v, "</text>\n            <text stroke=\"").concat(stroke, "\" transform=\"matrix(4.80256399955154,0,0,5.286496041355199,-903.3641023261588,-811.3419012917761) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_2\" y=\"195.796925\" x=\"250.162378\" stroke-width=\"0\" fill=\"").concat(color, "\">").concat(u, "</text>\n            </g>\n            </svg>\n        ");
@@ -188,5 +179,4 @@ var gooAvatar = {
     });
   }
 };
-var _default = gooAvatar;
-exports.default = _default;
+module.exports = gooAvatar;

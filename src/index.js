@@ -1,7 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable no-else-return */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-path-concat */
+
+
 import colors from 'nice-color-palettes/1000';
 import uuid from 'uuid/v1';
 import fs from 'fs';
@@ -221,4 +221,5 @@ const gooAvatar = {
     });
   }
 };
-export default gooAvatar;
+
+module.exports = gooAvatar;
