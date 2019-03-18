@@ -1,0 +1,43 @@
+{
+  "name": "goo-avatar",
+  "version": "1.0.0",
+  "description": "Creates Avatar for specific users on the fly",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "dev": "nodemon --exec babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicksEmmanuel/goo-avatar.git"
+  },
+  "keywords": [
+    "goo-avatar"
+  ],
+  "author": "vicksemmanuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vicksEmmanuel/goo-avatar/issues"
+  },
+  "homepage": "https://github.com/vicksEmmanuel/goo-avatar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-plugin-istanbul": "^5.1.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "nice-color-palettes": "^2.0.0",
+    "svg2png": "^4.1.1",
+    "uuid": "^3.3.2"
+  }
+}
