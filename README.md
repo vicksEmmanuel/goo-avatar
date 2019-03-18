@@ -12,7 +12,7 @@ Create Server-Side avatars on the fly
 ES6
 
 ```javascript
-    import gooAvatar from 'gooAvatar';
+    import gooAvatar from 'goo-avatar';
 
     gooAvatar.inSVG('User Name','destination/path').then(svg_path => {
         console.log(svg_path) //destination/path/21djde-2hdjd....svg
