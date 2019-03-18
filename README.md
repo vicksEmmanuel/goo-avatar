@@ -2,6 +2,8 @@
 
 Create Server-Side avatars on the fly
 
+![GitHub](https://img.shields.io/github/license/vicksEmmanuel/goo-avatar.svg) ![npm](https://img.shields.io/npm/v/goo-avatar.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr/vicksEmmanuel/goo-avatar.svg) ![GitHub contributors](https://img.shields.io/github/contributors/vicksEmmanuel/goo-avatar.svg) ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/vicksEmmanuel/goo-avatar/svg2png.svg) ![GitHub top language](https://img.shields.io/github/languages/top/vicksEmmanuel/goo-avatar.svg)
+
 ## Getting Started
 --------------------------------------------------------------
 
