@@ -17,19 +17,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* eslint-disable no-else-return */
 var gooavatar = {
   setDefaultTemplateProps: function setDefaultTemplateProps(v, u, color, stroke, bgcolor) {
-    var template = "\n            <svg width=\"580\" height=\"400\" xmlns=\"http://www.w3.org/2000/svg\">\n            <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->\n            <g>\n            <title>background</title>\n            <rect fill=\"".concat(bgcolor, "\" id=\"canvas_background\" height=\"402\" width=\"582\" y=\"-1\" x=\"-1\"/>\n            <g display=\"none\" overflow=\"visible\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\" id=\"canvasGrid\">\n            <rect fill=\"url(#gridpattern)\" stroke-width=\"0\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\"/>\n            </g>\n            </g>\n            <g>\n            <title>Layer 1</title>\n            <text stroke=\"").concat(stroke, "\" transform=\"matrix(7,0,0,7,-771,-848.625) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_1\" y=\"152.866071\" x=\"141.214286\" stroke-width=\"0\" fill=\"").concat(color, "\">").concat(v, "</text>\n            <text stroke=\"").concat(stroke, "\" transform=\"matrix(4.80256399955154,0,0,5.286496041355199,-903.3641023261588,-811.3419012917761) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_2\" y=\"195.796925\" x=\"250.162378\" stroke-width=\"0\" fill=\"").concat(color, "\">").concat(u, "</text>\n            </g>\n            </svg>\n        ");
+    var template = "\n            <svg width=\"580\" height=\"400\" xmlns=\"http://www.w3.org/2000/svg\">\n            <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->\n            <g>\n            <title>background</title>\n            <rect fill=\"" + bgcolor + "\" id=\"canvas_background\" height=\"402\" width=\"582\" y=\"-1\" x=\"-1\"/>\n            <g display=\"none\" overflow=\"visible\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\" id=\"canvasGrid\">\n            <rect fill=\"url(#gridpattern)\" stroke-width=\"0\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\"/>\n            </g>\n            </g>\n            <g>\n            <title>Layer 1</title>\n            <text stroke=\"" + stroke + "\" transform=\"matrix(7,0,0,7,-771,-848.625) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_1\" y=\"152.866071\" x=\"141.214286\" stroke-width=\"0\" fill=\"" + color + "\">" + v + "</text>\n            <text stroke=\"" + stroke + "\" transform=\"matrix(4.80256399955154,0,0,5.286496041355199,-903.3641023261588,-811.3419012917761) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"Helvetica, Arial, sans-serif\" font-size=\"24\" id=\"svg_2\" y=\"195.796925\" x=\"250.162378\" stroke-width=\"0\" fill=\"" + color + "\">" + u + "</text>\n            </g>\n            </svg>\n        ";
     return template;
   },
-  getColors: function getColors() {
-    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var idd = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  getColors: function getColors(id, idd) {
+    if (id === void 0) {
+      id = 0;
+    }
+
+    if (idd === void 0) {
+      idd = 0;
+    }
+
     return _.default[id][idd];
   },
   randomIntFromInterval: function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
-  nameTwerk: function nameTwerk() {
-    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  nameTwerk: function nameTwerk(name) {
+    if (name === void 0) {
+      name = '';
+    }
+
     name = name.toLowerCase();
     name = name.replace(/^mr\s/, '').replace(/^mr.\s/, '').replace(/^mr./, '').replace(/^mr,\s/, '').replace(/^mr,/, '').replace(/^mrs\s/, '').replace(/^mrs.\s/, '').replace(/^mrs./, '').replace(/^mrs,\s/, '').replace(/^mrs,/, '').replace(/^master\s/, '').replace(/^master.\s/, '').replace(/^master./, '').replace(/^master,\s/, '').replace(/^master,/, '').replace(/^miss\s/, '').replace(/^miss.\s/, '').replace(/^miss./, '').replace(/^miss,\s/, '').replace(/^miss,/, '').replace(/^dr\s/, '').replace(/^dr.\s/, '').replace(/^dr./, '').replace(/^dr,\s/, '').replace(/^dr,/, '').replace(/^engr\s/, '').replace(/^engr.\s/, '').replace(/^engr./, '').replace(/^engr,\s/, '').replace(/^engr,/, '').replace(/^madam\s/, '').replace(/^madam.\s/, '').replace(/^madam./, '').replace(/^madam,\s/, '').replace(/^madam,/, '').replace(/^sir\s/, '').replace(/^sir.\s/, '').replace(/^sir./, '').replace(/^sir,\s/, '').replace(/^sir,/, '');
 
@@ -69,15 +78,17 @@ var gooavatar = {
       };
     }
   },
-  getAvatarSVG: function getAvatarSVG(name) {
-    var dir = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '/avatar';
+  getAvatarSVG: function getAvatarSVG(name, dir) {
+    if (dir === void 0) {
+      dir = '/avatar';
+    }
 
     if (!(String(dir).length > 0)) {
       dir = '/avatar';
     }
 
     dir = dir.toLowerCase();
-    dir = dir.replace(String(__dirname).toLowerCase(), '');
+    dir = dir.replace(String(process.cwd()).toLowerCase(), '');
     dir = dir.replace(/\//g, '\\');
     var newname = gooavatar.nameTwerk(name);
     var color = gooavatar.getColors(gooavatar.randomIntFromInterval(0, 999), gooavatar.randomIntFromInterval(0, 3));
@@ -86,7 +97,7 @@ var gooavatar = {
     var check = dir.split('\\');
 
     for (var i = 0; i < check.length; i += 1) {
-      var directory = "".concat(__dirname, "\\").concat(check[i]);
+      var directory = process.cwd() + "\\" + check[i];
 
       if (!_fs.default.existsSync(directory)) {
         _fs.default.mkdirSync(directory);
@@ -97,7 +108,7 @@ var gooavatar = {
       }
     }
 
-    var source = "".concat(__dirname, "\\").concat(dir, "\\").concat((0, _v.default)(), ".svg");
+    var source = process.cwd() + "\\" + dir + "\\" + (0, _v.default)() + ".svg";
     source = source.replace("\\\\", "\\");
     return new Promise(function (resolve, reject) {
       _fs.default.writeFile(source, template, function (err) {
@@ -109,15 +120,18 @@ var gooavatar = {
       });
     });
   },
-  getAvatarPNG: function getAvatarPNG(name) {
-    var dir = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '/avatar';
+  getAvatarPNG: function getAvatarPNG(name, dir) {
+    if (dir === void 0) {
+      dir = '/avatar';
+    }
+
     return new Promise(function (resolve, reject) {
       gooavatar.getAvatarSVG(name, dir).then(function (directory) {
-        var label = _path.default.dirname("".concat(directory));
+        var label = _path.default.dirname("" + directory);
 
-        var basename = _path.default.basename("".concat(directory), '.svg');
+        var basename = _path.default.basename("" + directory, '.svg');
 
-        var newpath = "".concat(label, "\\").concat(basename, ".png");
+        var newpath = _path.default.resolve(label, basename + ".png");
 
         _fs.default.readFile(directory, function (err, data) {
           if (err) {
@@ -151,7 +165,7 @@ var gooAvatar = {
     return new Promise(function (resolve, reject) {
       if (options == 'name') {
         gooavatar.getAvatarSVG(name, dir).then(function (source) {
-          resolve(source.replace(__dirname, '').replace("\\\\", '\\'));
+          resolve(source.replace(process.cwd(), '').replace("\\\\", '\\'));
         }).catch(function (err) {
           reject(err);
         });
@@ -169,7 +183,7 @@ var gooAvatar = {
     return new Promise(function (resolve, reject) {
       if (options == 'name') {
         gooavatar.getAvatarPNG(name, dir).then(function (source) {
-          resolve(source.replace(__dirname, ''));
+          resolve(source.replace(process.cwd(), ''));
         });
       } else {
         reject({

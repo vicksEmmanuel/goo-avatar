@@ -117,7 +117,7 @@ const gooavatar = {
       dir = '/avatar';
     }
     dir = dir.toLowerCase();
-    dir = dir.replace(String(__dirname).toLowerCase(), '');
+    dir = dir.replace(String(process.cwd()).toLowerCase(), '');
     dir = dir.replace(/\//g, '\\');
     const newname = gooavatar.nameTwerk(name);
     const color = gooavatar.getColors(
@@ -132,7 +132,7 @@ const gooavatar = {
 
     const check = dir.split('\\');
     for (let i = 0; i < check.length; i += 1) {
-      const directory = `${__dirname}\\${check[i]}`;
+      const directory = `${process.cwd()}\\${check[i]}`;
       if (!fs.existsSync(directory)) {
         fs.mkdirSync(directory);
       }
@@ -140,7 +140,7 @@ const gooavatar = {
         check[i + 1] = [check[i], check[i + 1]].join('\\');
       }
     }
-    let source = `${__dirname}\\${dir}\\${uuid()}.svg`;
+    let source = `${process.cwd()}\\${dir}\\${uuid()}.svg`;
     source = source.replace(`\\\\`, `\\`);
     return new Promise((resolve, reject) => {
       fs.writeFile(source, template, err => {
@@ -157,7 +157,7 @@ const gooavatar = {
       gooavatar.getAvatarSVG(name, dir).then(directory => {
         const label = path.dirname(`${directory}`);
         const basename = path.basename(`${directory}`, '.svg');
-        const newpath = `${label}\\${basename}.png`;
+        const newpath = path.resolve(label, `${basename}.png`);
         fs.readFile(directory, (err, data) => {
           if (err) {
             reject(err);
@@ -192,7 +192,7 @@ const gooAvatar = {
         gooavatar
           .getAvatarSVG(name, dir)
           .then(source => {
-            resolve(source.replace(__dirname, '').replace(`\\\\`,'\\'));
+            resolve(source.replace(process.cwd(), '').replace(`\\\\`,'\\'));
           })
           .catch(err => {
             reject(err);
@@ -211,7 +211,7 @@ const gooAvatar = {
     return new Promise((resolve, reject) => {
       if (options == 'name') {
         gooavatar.getAvatarPNG(name, dir).then(source => {
-          resolve(source.replace(__dirname, ''));
+          resolve(source.replace(process.cwd(), ''));
         });
       } else {
         reject({
